@@ -42,6 +42,7 @@ function SignupHooks() {
 
         if (lastBlur) {
             
+            
         }
 
         if (emailBlur) {
