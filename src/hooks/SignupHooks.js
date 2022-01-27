@@ -1,5 +1,5 @@
 import { useState, useEffect } from React;
-import { isAlpha, isEmail } from 'validator';
+import { isAlpha, isEmail, isAlphanumeric } from 'validator';
 
 function SignupHooks() {
     const [className, setClassName] = useState('form-control');
@@ -54,20 +54,23 @@ function SignupHooks() {
         }
 
         if (emailBlur) {
-            if (email.length === 0) {
-                setEmailErr('Email cannot be empty');
+            if (!isEmail(email)) {
                 setClassName('form-control is-invalid');
-            } else if (!isEmail(email)) {
                 setEmailErr('Please enter a valid email');
+            } else if (email.length === 0) {
                 setClassName('form-control is-invalid');
+                setEmailErr('Email cannot be empty');
             } else {
-                setEmailErr('');
                 setClassName('form-control is-valid');
+                setEmailErr('');
             }
         }
 
         if (userBlur) {
-            
+            if (user.length < 4) {
+                setClassName('form-control is-invalid');
+                setUserErr('Username must be longer than 4 characters');
+            }
         }
 
         if (passBlur) {
