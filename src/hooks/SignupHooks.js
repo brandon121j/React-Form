@@ -41,8 +41,17 @@ function SignupHooks() {
         }
 
         if (lastBlur) {
-            
-            
+            if (!isAlpha(last)) {
+                setClassName('form-control is-invalid');
+                setLastErr('Last name cannot contain numbers')
+            } else if (last.length === 0) {
+                setClassName('form-control is-invalid');
+                setLastErr('Last name cannot be empty')
+            } else {
+                setClassName('form-control is-valid');
+                setLastErr('');
+            }
+
         }
 
         if (emailBlur) {
