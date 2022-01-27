@@ -108,17 +108,41 @@ function SignupHooks() {
                 setConfClass('form-control is-invalid');
             } else if (confirm !== password) {
                 setConfErr('Passwords must match');
-                setConfirmClass('form-control is-invalid');
             } else {
                 setConfErr('');
-                setConfirmClass('form-control is-valid');
             }
         }
 
-    }, [
-
+    }, 
+    [
+        firstErr,
+        lastErr,
+        emailErr,
+        userErr,
+        passErr,
+        confErr,
+        setFirstBlur,
+        setLastBlur,
+        setEmailBlur,
+        setUserBlur,
+        setpassBlur,
+        setConfBlur,
+        setFirst,
+        setLast,
+        setEmail,
+        setUser,
+        setPass,
+        setConf,
+        firstClass,
+        lastClass,
+        emailClass,
+        userClass,
+        passClass,
+        confClass,
     ]
     );
 
 
 }
+
+export default SignupHooks;
